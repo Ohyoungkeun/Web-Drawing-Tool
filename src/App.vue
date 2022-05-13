@@ -1,60 +1,38 @@
 <template>
   <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
-
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
-
-      <v-spacer></v-spacer>
-
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
+    <Header/>
     <v-main>
-      <HelloWorld/>
+      <div class = "wrap">
+        <Menu_left/>
+        <Content/>
+        <Menu_right/>
+      </div>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld';
-
+import Header from './components/Header-part.vue';
+import Menu_left from './components/Menu-left.vue';
+import Menu_right from './components/Menu-right.vue';
+import Content from './components/Content-part.vue';
 export default {
-  name: 'App',
-
+  name: 'Web-Drawing-Tool',
   components: {
-    HelloWorld,
+    Header,
+    Menu_left,
+    Menu_right,
+    Content,
   },
-
   data: () => ({
     //
   }),
 };
 </script>
+
+<style scoped>
+.wrap{
+  margin-right: 3%;
+  display: flex;
+}
+</style>

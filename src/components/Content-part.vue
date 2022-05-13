@@ -1,18 +1,29 @@
 <template>
   <v-container>
-    <fabric/>
-    <canvas class ="can" id="canvas" width="900" height="600"></canvas>
+    <canvas class ="canvas" id="c"></canvas>
   </v-container>
 </template>
 
 <script>
+/*
 import { fabric } from "fabric";
-
+fabric으로 변경중
+export default {
+  name: 'Content-part',
+  data(){
+    return {
+      myCanvas: new fabric.Canvas('c', { isDrawingMode: true }),
+    }
+  },
+  monted(){
+  },
+  methods: {
+  }
+};
+*/
+//기존에 작성했던 canvas api 코드
 export default {
     name: 'Content-part',
-    components: {
-      fabric
-    },
     data() {
       return {
         canvas: null,
@@ -36,7 +47,6 @@ export default {
         this.ctx.lineTo(curX, curY);
         this.ctx.stroke();
       },
-
       move(e){
         if(!this.dragging) return;  //dragging : false => return , dragging: true => move
         var curX = e.offsetX, curY = e.offsetY;
@@ -44,7 +54,6 @@ export default {
         this.startX = curX;
         this.startY = curY;
       },
-
       down(e){
         this.startX = e.offsetX;
         this.startY = e.offsetY;
@@ -66,17 +75,15 @@ div {
   height: 700px;
   background-color: #E0E0E0;
 }
-.can {
-
+.canvas {
+  width: 900px;
+  height: 600px;
   margin: auto;
   display: block;
-
   top: 50%;
   bottom: 50%;
   left: 50%;
   right: 50%;
-
   background-color: white;
-
 }
 </style>>
